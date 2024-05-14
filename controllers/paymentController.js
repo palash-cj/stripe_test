@@ -127,7 +127,7 @@ const webhook = async (req, res) => {
     
     // const payload = `${req.body}`;
     // console.log(payload, 129);
-    const endpointSecret = 'we_1PGJzbSJ3MorEbHbImnhNWw1';
+    const endpointSecret = 'we_1PGJzbSJ3MorEbHbImnhNWw1'; // webhook key
     const sig = req.headers['stripe-signature'];
     console.log(sig, 132);
     
