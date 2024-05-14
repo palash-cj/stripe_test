@@ -124,6 +124,7 @@ const charge = async (req, res) => {
 
 const webhook = async (req, res) => {
     console.log(126);
+    const endpointSecret = 'we_1PGJzbSJ3MorEbHbImnhNWw1';
     const sig = req.headers['stripe-signature'];
     
     let event;
@@ -133,7 +134,7 @@ const webhook = async (req, res) => {
         console.log(event, 133);
     } catch (err) {
         console.log(err);
-        response.status(400).send(`Webhook Error: ${err.message}`);
+        res.status(400).send(`Webhook Error: ${err.message}`);
         return;
     }
     
@@ -141,7 +142,7 @@ const webhook = async (req, res) => {
     console.log(`Unhandled event type ${event.type}`);
     
     // Return a 200 response to acknowledge receipt of the event
-    response.send();
+    res.send();
      
 }
 
