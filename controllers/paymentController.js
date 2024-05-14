@@ -125,8 +125,8 @@ const charge = async (req, res) => {
 const webhook = async (req, res) => {
     console.log(126);
     
-    const payload = `${req.body}`;
-    console.log(payload, 129);
+    // const payload = `${req.body}`;
+    // console.log(payload, 129);
     const endpointSecret = 'we_1PGJzbSJ3MorEbHbImnhNWw1';
     const sig = req.headers['stripe-signature'];
     console.log(sig, 132);
@@ -135,7 +135,7 @@ const webhook = async (req, res) => {
     
     try {
         console.log(137);
-        event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
         console.log(event, 133);
     } catch (err) {
         console.log(err);
