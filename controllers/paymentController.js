@@ -124,12 +124,12 @@ const charge = async (req, res) => {
 
 const webhook = async (req, res) => {
     console.log(126);
-    const sig = request.headers['stripe-signature'];
+    const sig = req.headers['stripe-signature'];
     
     let event;
     
     try {
-        event = stripe.webhooks.constructEvent(request.body, sig, endpointSecret);
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
         console.log(event, 133);
     } catch (err) {
         console.log(err);
