@@ -17,6 +17,6 @@ payment_route.post('/payment', paymentController.payment);
 payment_route.get('/success', paymentController.success);
 payment_route.get('/failure', paymentController.failure);
 payment_route.post('/charge', paymentController.charge);
-payment_route.post('/webhook', express.json({ type: "application/json" }), paymentController.webhook);
+payment_route.post('/webhook', bodyParser.raw({ type: 'application/json' }), paymentController.webhook);
 
 module.exports = payment_route;
