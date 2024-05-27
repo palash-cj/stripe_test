@@ -156,12 +156,7 @@ const webhook = async (req, res) => {
       }
     
       // Return a response to acknowledge receipt of the event
-      response.json({received: true});
-    // Handle the event
-    console.log(`Unhandled event type ${event.type}`);
-    
-    // Return a 200 response to acknowledge receipt of the event
-    res.send();
+    res.json({received: true});
      
 }
 
